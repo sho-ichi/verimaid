@@ -1,0 +1,35 @@
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+        'primaryColor': '#ECECFF',
+        'primaryBorderColor': '#9B7BDD',
+        'secondaryColor': '#F0F0C0',
+        'tertiaryColor': '#ECECFF',
+        'tertiaryBorderColor': '#AB92E5'
+    }
+  }
+}%%
+graph TD
+    Arbitrator --> RAM_MANAGER_A & RAM_MANAGER_B
+    subgraph RAM_MANAGER_A["RAM_MANAGER_A(RAM_MANAGER)"]
+        module
+    end
+    
+    
+    subgraph RAM_MANAGER_B["RAM_MANAGER_B(RAM_MANAGER)"]
+        input0:::signal
+        input1:::signal
+        input2:::signal
+        input0 & input1 & input2 ~~~ middle[" "]:::transparent
+        %% 同名インスタンスをどうするか
+        %% RAM_WRITER
+        %% RAM
+        %% RAM_READER
+        output0:::signal
+        output1:::signal
+        output2:::signal
+        middle ~~~ output0 & output1 & output2
+    end
+classDef transparent fill:transparent, stroke: transparent
+classDef signal fill: #F0F0C0, stroke:#ECECFF
